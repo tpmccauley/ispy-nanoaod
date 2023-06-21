@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  
+  <script type="importmap">
+    {
+	"imports": {
+	    "three": "https://unpkg.com/three@v0.149.0/build/three.module.js",
+	    "three/addons/": "https://unpkg.com/three@v0.149.0/examples/jsm/",
+	    "jsroot": "https://root.cern/js/latest/modules/main.mjs"
+	}
+    }
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="./graphics/cms-favicon.png" type="image/png" />
+
+  <style>      
+    body {
+	margin: 0;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	overflow: hidden;
+    }
+    canvas {
+	width: 100%;
+	height: 100%;
+    }
+    #event-info {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	padding-top: 10px;
+	padding-left: 10px;
+	display: block;
+    }
+    #progress {
+	border: none;
+	position:absolute;
+	text-align: center;
+	top: 50%;
+	width: 100%;
+	padding: 5px;
+	color: white;
+	visibility: hidden;
+    }
+    #text {
+	color: white;
+	padding-left: 10px;
+	font-size: 20px;
+	font-weight: normal;
+    }
+  </style>
+  
+  <script type="module" src="jsm/ispy.js"></script>
+  
+  <title>iSpy NanoAOD</title>
+</head>
+<body>
+  <div id="progress">Loading <span id="percent"></span>%</div>
+  <div id="event-info">
+    <table>
+      <tr>
+	<td id="logo"><img src='graphics/CMSlogo_color_nolabel_64_May2014.png'></img></td>
+	<td id="text">
+	  CMS Experiment at the LHC, CERN </br>
+	</td>
+      </tr>
+    </table>
+  </div>
+</body>
