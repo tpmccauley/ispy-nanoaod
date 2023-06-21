@@ -4,6 +4,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
+import { openFile } from 'https://root.cern/js/latest/modules/io.mjs';
 
 let camera, scene, renderer, controls;
 let dolly, controller;
@@ -36,8 +37,47 @@ var init = function() {
     controls = new OrbitControls(camera, renderer.domElement);
     controls.zoomSpeed = 0.5;
 
-    document.body.appendChild(renderer.domElement);    
-    document.body.appendChild(VRButton.createButton(renderer));
+    document.body.appendChild(renderer.domElement);
+    
+    const canvas = renderer.domElement;
+    
+    canvas.ondragover = function() {
+
+	return false;
+
+    };
+    
+    canvas.ondragend = function() {
+
+	return false;
+
+    };
+    
+    canvas.ondrop = function(e) {
+
+        e.preventDefault;
+	
+	let instructions = document.getElementById('instructions');
+	instructions.style.visibility = 'hidden';
+	
+        const file = e.dataTransfer.files[0];
+
+	console.log("loading "+file.name);
+
+	let nanoaod_file = openFile(file.name);
+
+	
+	
+	
+	return false
+	
+    };
+
+    canvas.addEventListener('ondragover', canvas.ondragover);
+    canvas.addEventListener('ondragend', canvas.ondragend);
+    canvas.addEventListener('ondrop', canvas.ondrop);
+    
+    //document.body.appendChild(VRButton.createButton(renderer));
 
     dolly = new THREE.Group();
     

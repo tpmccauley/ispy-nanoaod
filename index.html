@@ -5,9 +5,8 @@
   <script type="importmap">
     {
 	"imports": {
-	    "three": "https://unpkg.com/three@v0.149.0/build/three.module.js",
-	    "three/addons/": "https://unpkg.com/three@v0.149.0/examples/jsm/",
-	    "jsroot": "https://root.cern/js/latest/modules/main.mjs"
+	    "three": "https://unpkg.com/three@v0.153.0/build/three.module.js",
+	    "three/addons/": "https://unpkg.com/three@v0.153.0/examples/jsm/"
 	}
     }
   </script>
@@ -50,14 +49,27 @@
 	font-size: 20px;
 	font-weight: normal;
     }
+    #instructions {
+	border: none;
+	position:absolute;
+	text-align: center;
+	top: 50%;
+	width: 100%;
+	padding: 5px;
+	color: white;
+    }
   </style>
   
   <script type="module" src="jsm/ispy.js"></script>
   
   <title>iSpy NanoAOD</title>
+
 </head>
+
 <body>
+  
   <div id="progress">Loading <span id="percent"></span>%</div>
+
   <div id="event-info">
     <table>
       <tr>
@@ -68,4 +80,9 @@
       </tr>
     </table>
   </div>
+
+  <div id="instructions">
+    Drag-and-drop your nanoAOD file here
+  </div>
+
 </body>
